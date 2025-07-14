@@ -1,16 +1,17 @@
-package com.test.leetCode;
+package com.test.leetCode.suanfa.jiandan;
 
 /**
  * @author myDemo
  * @since 2025/7/10
+ * <p>
+ * 两数之和
  **/
 public class day1 {
     public static void main(String[] args) {
-
-        int[] nums ={2,7,11,15};
+        int[] nums = {2, 7, 11, 15};
         int target = 26;
         int[] ints = twoSum(nums, target);
-        System.out.println("["+ints[0]+","+ints[1]+"]");
+        System.out.println("[" + ints[0] + "," + ints[1] + "]");
     }
 
 
