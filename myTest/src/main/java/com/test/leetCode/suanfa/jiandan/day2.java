@@ -9,10 +9,15 @@ import com.drew.lang.StringUtil;
  **/
 public class day2 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome(15251));
+        System.out.println(isPalindrome(2147483647));
     }
 
-    public static boolean isPalindrome(int x) {
+    /**
+     * 第一版解出来的，用的string 内存占用还行，运行速度低
+     * @param x
+     * @return
+     */
+    public static boolean isPalindromeStr(int x) {
         if (x < 0) {
             return false;
         }
@@ -26,4 +31,54 @@ public class day2 {
         }
         return false;
     }
+
+
+    /**
+     * 这一版用纯数字
+     * @param x
+     * @return
+     */
+    public static boolean isPalindrome(int x) {
+        if (x < 0 || (x!= 0 && x % 10 == 0)) {
+            return false;
+        }
+
+        int temp = 0;
+        int flag = x;
+        while (flag>temp && temp>=0) {
+            temp = temp * 10 + x % 10;
+            x/=10;
+        }
+        if (flag == temp) {
+            return true;
+        }
+        return false;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
