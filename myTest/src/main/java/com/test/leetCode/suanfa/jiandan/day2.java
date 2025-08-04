@@ -9,7 +9,7 @@ import com.drew.lang.StringUtil;
  **/
 public class day2 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome(2147483647));
+        System.out.println(isPalindrome(12455421));
     }
 
     /**
