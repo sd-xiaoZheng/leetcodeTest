@@ -8,17 +8,62 @@ import java.util.List;
  */
 public class day4 {
     public static void main(String[] args) {
-//        String[] strs= {"abckji","abcdfer","abciop","abcdfgh","abcdsa","abcdewqop","abcdfrte","abcdnmk","abcdploi","abcdplokiju"};
-        String[] strs = {"a", "ab"};
+        String[] strs= {"abckji","abcdfer","abciop","abcdfgh","abcdsa","abcdewqop","abcdfrte","abcdnmk","abcdploi","abcdplokiju"};
+//        String[] strs = {"a", "ab"};
+//        String[] strs = {"a"};
         System.out.println(longestCommonPrefix(strs));
     }
+
+    /**
+     * 公共最长前缀
+     * @param strs
+     * @return
+     */
+    public static String longestCommonPrefix(String[] strs) {
+        int len = strs.length;
+        String temp=null;
+        for (int j = 0; j <200; j++) {
+            for (int i = 0; i < len; i++) {
+                if (j==strs[i].length()){
+                    return temp;
+                }
+
+                if (temp==null){
+                    temp=strs[i].substring(0, j+1);
+                }else {
+                    if (temp.equals(strs[i].substring(0,j+1))){
+                        if (i==len-1){
+                            temp=strs[i].substring(0,j+1);
+                            return temp;
+                        }
+                        temp=strs[i].substring(0, j+1);
+                    }else {
+                        return temp;
+                    }
+                }
+            }
+            temp=strs[1].substring(0,j+1);
+        }
+        return temp;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 妈的 理解错题了，我取出了最长的相同前缀
      * @param strs
      * @return
      */
-    public static String longestCommonPrefix(String[] strs) {
+    public static String longestCommonPrefix1(String[] strs) {
         Arrays.sort(strs);
         int length = strs.length;
         if (length == 1) {
