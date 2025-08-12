@@ -8,58 +8,48 @@ import java.util.List;
  */
 public class day4 {
     public static void main(String[] args) {
-        String[] strs= {"abckji","abcdfer","abciop","abcdfgh","abcdsa","abcdewqop","abcdfrte","abcdnmk","abcdploi","abcdplokiju"};
+        String[] strs = {"abckji", "abcdfer", "abciop", "abcdfgh", "abcdsa", "abcdewqop", "abcdfrte", "abcdnmk", "abcdploi", "abcdplokiju"};
 //        String[] strs = {"a", "ab"};
+//        String[] strs = {"ab", "a"};
 //        String[] strs = {"a"};
+//        String[] strs = {""};
         System.out.println(longestCommonPrefix(strs));
     }
 
     /**
+     * 排名45%
      * 公共最长前缀
+     *
      * @param strs
      * @return
      */
     public static String longestCommonPrefix(String[] strs) {
         int len = strs.length;
-        String temp=null;
-        for (int j = 0; j <200; j++) {
+        String temp = "";
+        for (int j = 0; j < 200; j++) {
             for (int i = 0; i < len; i++) {
-                if (j==strs[i].length()){
-                    return temp;
+                if (j == strs[i].length()) {
+                    return temp.substring(0,strs[i].length());
                 }
 
-                if (temp==null){
-                    temp=strs[i].substring(0, j+1);
-                }else {
-                    if (temp.equals(strs[i].substring(0,j+1))){
-                        if (i==len-1){
-                            temp=strs[i].substring(0,j+1);
-                            return temp;
-                        }
-                        temp=strs[i].substring(0, j+1);
+                if (temp == null) {
+                    temp = strs[i].substring(0, j + 1);
+                } else {
+                    if (temp.equals(strs[i].substring(0, j + 1))||i==0) {
+                        temp = strs[i].substring(0, j + 1);
                     }else {
-                        return temp;
+                        return temp.substring(0, temp.length()-1);
                     }
                 }
             }
-            temp=strs[1].substring(0,j+1);
         }
         return temp;
     }
 
 
-
-
-
-
-
-
-
-
-
-
     /**
      * 妈的 理解错题了，我取出了最长的相同前缀
+     *
      * @param strs
      * @return
      */
@@ -80,7 +70,7 @@ public class day4 {
             for (int i1 = 0; i1 < length1 && i1 < length2; i1++) {
                 if (charArray1[i1] == charArray2[i1]) {
                     o++;
-                    if (i1 == length1-1 || i1 == length2-1) {
+                    if (i1 == length1 - 1 || i1 == length2 - 1) {
                         prefix = strs[i].substring(0, o);
                     }
                 } else {
