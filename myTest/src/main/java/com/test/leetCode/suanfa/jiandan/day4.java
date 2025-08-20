@@ -13,7 +13,7 @@ public class day4 {
 //        String[] strs = {"ab", "a"};
 //        String[] strs = {"a"};
 //        String[] strs = {""};
-        System.out.println(longestCommonPrefixOne(strs));
+        System.out.println(longestCommonPrefix(strs));
     }
 
     /**
@@ -28,10 +28,10 @@ public class day4 {
         String temp = "";
         for (int j = 0; j < 200; j++) {
             for (int i = 0; i < len; i++) {
-                if (j == strs[i].length()) {
-                    return temp.substring(0,strs[i].length());
+                int length = strs[i].length();
+                if (j == length) {
+                    return temp.substring(0,length);
                 }
-
                 if (temp == null) {
                     temp = strs[i].substring(0, j + 1);
                 } else {
